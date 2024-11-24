@@ -68,9 +68,7 @@
         "lint": "eslint .",
         "docs": "jsdoc -c jsdoc.json"
     },
-    "dependencies": {
-        "mysql2": "^3.3.3"
-    },
+    "dependencies": {},
     "devDependencies": {},
     "engines": {
         "node": ">=16.0.0"
