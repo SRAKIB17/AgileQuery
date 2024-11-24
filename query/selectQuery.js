@@ -84,9 +84,9 @@ function selectQuery(config) {
     if (subQueries) {
         const subQueryStatement = subQueries
             .map(subQuery => {
-                // Build the subquery string with optional alias
-                return `(${subQuery.query})${subQuery.as ? ` AS ${subQuery.as}` : ""}`;
-            })
+            // Build the subquery string with optional alias
+            return `(${subQuery.query})${subQuery.as ? ` AS ${subQuery.as}` : ""}`;
+        })
             .join(", ");
         select += `${select ? ", " : ""} ${subQueryStatement}`;
     }
@@ -103,17 +103,14 @@ function selectQuery(config) {
             // Handle case where there's no alias
             const functionStr = Object.entries(functions)
                 .map(([func, column]) => {
-                    return `${func}(${column}) AS ${aggregates_alias[func] || func}`;
-                }).join(", ");
+                return `${func}(${column}) AS ${aggregates_alias[func] || func}`;
+            }).join(", ");
             return functionStr;
         });
         select += `${select ? ", " : ""}${aggStrings.join(", ")}`;
     }
-    else {
-        select = "*";
-    }
     //! FROM Clause
-    query += `${select} FROM ${main_table}`;
+    query += `${select ? select : "*"} FROM ${main_table}`;
     //! Joins
     if (joins) {
         query += (0, utils_1.parseJoins)(joins);
