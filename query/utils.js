@@ -77,7 +77,7 @@ function parseJoins(joins) {
                 throw new Error(`❌JOIN requires exactly two tables for a relation, but found ${tableEntries.length} or condition not found`);
             }
             const [[table1, column1], [table2, column2]] = tableEntries;
-            return ` ${type} ${table2} ON ${table1}.${column1} ${operator} ${table2}.${column2}`;
+            return ` ${type} ${table1} ON ${table2}.${column2} ${operator} ${table1}.${column1}`;
         }
         else {
             // Case 2: Shorthand form (logging details as requested)
@@ -92,7 +92,7 @@ function parseJoins(joins) {
             }
             // Deconstruct the table-column pairs
             const [[table1, column1], [table2, column2]] = tableEntries;
-            return ` JOIN ${table2} ON ${table1}.${column1} = ${table2}.${column2}`;
+            return ` JOIN ${table1} ON ${table2}.${column2} = ${table1}.${column1}`;
         }
     });
     return joinClauses.join(" ");
@@ -116,7 +116,7 @@ function parsecolumns(columns) {
             if (table === "extra") {
                 return clauses.push(Array.isArray(columns)
                     ? columns.join(", ")
-                    : table);
+                    : columns);
             }
             ; // Skip `extra` field
             if (Array.isArray(columns)) {
