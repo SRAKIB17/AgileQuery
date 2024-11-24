@@ -1,0 +1,94 @@
+{
+    "name": "agilequery",
+    "version": "1.0.0",
+    "description": "AgileQuery is a powerful and flexible MySQL query builder and utility library. Designed to simplify query generation, execution, and management, it provides support for complex joins, sorting, grouping, aggregates, subqueries, and more.",
+    "keywords": [
+        "mysql",
+        "sql",
+        "query-builder",
+        "query-generation",
+        "database-management",
+        "data-access",
+        "sql-utils",
+        "agilequery",
+        "mysql-utils",
+        "sql-builder",
+        "joins",
+        "grouping",
+        "aggregates",
+        "subqueries",
+        "pagination",
+        "sort-order",
+        "data-queries",
+        "dynamic-queries",
+        "recursive-cte",
+        "hierarchical-data",
+        "sql-joins",
+        "mysql-query-builder",
+        "sql-management",
+        "query-execution",
+        "database-queries",
+        "mysql-performance",
+        "data-processing",
+        "table-joins",
+        "data-retrieval",
+        "database-abstraction",
+        "advanced-sql",
+        "sql-performance",
+        "query-optimization",
+        "mysql-database",
+        "data-grouping",
+        "sql-query",
+        "builder-pattern",
+        "nodejs-mysql",
+        "sql-library",
+        "mysql-tools",
+        "schema-builder",
+        "query-creation",
+        "data-analysis",
+        "sql-syntax",
+        "nodejs-sql"
+    ],
+    "main": "index.js",
+    "module": "index.js",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SRAKIB17/AgileQuery"
+    },
+    "author": "SRAKIB17",
+    "license": "MIT",
+    "homepage": "https://rpackage.vercel.app/npm/docs/agilequery",
+    "bugs": {
+        "url": "https://github.com/yourusername/agilequery/issues"
+    },
+    "scripts": {
+        "test": "jest",
+        "build": "tsc",
+        "lint": "eslint .",
+        "prepublishOnly": "npm run build && npm run lint && npm test",
+        "docs": "jsdoc -c jsdoc.json"
+    },
+    "dependencies": {
+        "mysql2": "^3.3.3"
+    },
+    "devDependencies": {
+        "typescript": "^5.2.2",
+        "jest": "^29.7.0",
+        "eslint": "^8.56.1",
+        "@types/jest": "^29.7.0",
+        "@types/node": "^20.7.1",
+        "jsdoc": "^4.0.2"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "exports": {
+        ".": {
+            "import": "./index.js",
+            "require": "./index.js",
+            "types": "./index.d.ts"
+        }
+    },
+    "sideEffects": false
+}
