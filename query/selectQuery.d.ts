@@ -83,4 +83,4 @@ export interface SelectQueryParams<Tables extends string[]> {
  * // ORDER BY order_date DESC
  * // LIMIT 10 OFFSET 0;
  */
-export function selectSQL<Tables extends string[]>(config: SelectQueryParams<Tables>): string;
+export function selectQuery<Tables extends string[]>(config: SelectQueryParams<Tables>): string;

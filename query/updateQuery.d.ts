@@ -1,9 +1,9 @@
 import { JoinsType, SortType } from "./types";
 
 /**
- * Type definition for the parameters used in the `updateSQL` function.
+ * Type definition for the parameters used in the `updateQuery` function.
  */
-export interface UpdateSQLParams<Tables extends string[]> {
+export interface updateQueryParams<Tables extends string[]> {
     table: string;
     updateData?: {
         [key: string]: string | number | null | {
@@ -29,9 +29,9 @@ export interface UpdateSQLParams<Tables extends string[]> {
 /**
  * Generates an UPDATE SQL query with flexible options for joins, conditional updates, and additional calculations.
  *
- * @param {UpdateSQLParams} params - Parameters for the SQL query.
+ * @param {updateQueryParams} params - Parameters for the SQL query.
  * @returns {string} - The generated SQL query.
  *
  * @throws {Error} - Throws an error if the `table` or `where` is missing.
  */
-export function updateSQL<Tables extends string[]>(params: UpdateSQLParams<Tables>): string;
+export function updateQuery<Tables extends string[]>(params: updateQueryParams<Tables>): string;

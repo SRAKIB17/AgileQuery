@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateSQL = updateSQL;
+exports.updateQuery = updateQuery;
 const utils_1 = require("./utils");
 /**
  * Generates an UPDATE SQL query with flexible options for joins, conditional updates, and additional calculations.
@@ -33,7 +33,7 @@ const utils_1 = require("./utils");
  *
  * @example
  * // Example 1: Simple update with conditional CASE WHEN logic
- * const query = updateSQL({
+ * const query = updateQuery({
  *   table: 'employees',
  *   updateData: {
  *     salary: {
@@ -51,7 +51,7 @@ const utils_1 = require("./utils");
  *
  * @example
  * // Example 2: Update with SET calculations, JOIN, and LIMIT
- * const query = updateSQL({
+ * const query = updateQuery({
  *   table: 'products',
  *   updateData: { price: 'price * 1.1' },
  *   where: 'stock > 0',
@@ -64,7 +64,7 @@ const utils_1 = require("./utils");
  * // Output: UPDATE products INNER JOIN categories ON products.category_id = categories.id
  * //         SET price = price * 1.1 WHERE stock > 0 ORDER BY name DESC LIMIT 10;
  */
-function updateSQL({ table = '', joins = [], updateData = {}, where = '', nullValues = [], defaultValues = [], limit, sort, fromSubQuery = {}, setCalculations = {} }) {
+function updateQuery({ table = '', joins = [], updateData = {}, where = '', nullValues = [], defaultValues = [], limit, sort, fromSubQuery = {}, setCalculations = {} }) {
     if (!table) {
         throw new Error("⚠️ The `table` parameter is required.");
     }

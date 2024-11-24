@@ -1,5 +1,5 @@
 {
-    "name": "agilequery",
+    "name": "agile-query",
     "version": "1.0.0",
     "description": "AgileQuery is a powerful and flexible MySQL query builder and utility library. Designed to simplify query generation, execution, and management, it provides support for complex joins, sorting, grouping, aggregates, subqueries, and more.",
     "keywords": [
@@ -60,26 +60,18 @@
     "license": "MIT",
     "homepage": "https://rpackage.vercel.app/npm/docs/agilequery",
     "bugs": {
-        "url": "https://github.com/yourusername/agilequery/issues"
+        "url": "https://github.com/SRAKIB17/AgileQuery/issues"
     },
     "scripts": {
         "test": "jest",
         "build": "tsc",
         "lint": "eslint .",
-        "prepublishOnly": "npm run build && npm run lint && npm test",
         "docs": "jsdoc -c jsdoc.json"
     },
     "dependencies": {
         "mysql2": "^3.3.3"
     },
-    "devDependencies": {
-        "typescript": "^5.2.2",
-        "jest": "^29.7.0",
-        "eslint": "^8.56.1",
-        "@types/jest": "^29.7.0",
-        "@types/node": "^20.7.1",
-        "jsdoc": "^4.0.2"
-    },
+    "devDependencies": {},
     "engines": {
         "node": ">=16.0.0"
     },

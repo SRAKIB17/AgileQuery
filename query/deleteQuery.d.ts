@@ -2,7 +2,7 @@
 import { JoinsType, SortType } from "./types";
 
 /**
- * Interface for parameters used in the deleteSQL function.
+ * Interface for parameters used in the deleteQuery function.
  * @template Tables - A list of table names.
  */
 export interface DeleteQueryParams<Tables extends string[]> {
@@ -41,7 +41,7 @@ export interface DeleteQueryParams<Tables extends string[]> {
  * 
  * @example
  * // Basic DELETE query
- * const query = deleteSQL({
+ * const query = deleteQuery({
  *   table: 'users',
  *   where: 'age > 30'
  * });
@@ -50,7 +50,7 @@ export interface DeleteQueryParams<Tables extends string[]> {
  * 
  * @example
  * // DELETE query with JOINs and sorting
- * const query = deleteSQL({
+ * const query = deleteQuery({
  *   table: 'orders',
  *   where: 'status = "pending"',
  *   joins: [
@@ -62,7 +62,7 @@ export interface DeleteQueryParams<Tables extends string[]> {
  * console.log(query);
  * // Output: DELETE orders FROM orders INNER JOIN customers ON orders.customer_id = customers.id WHERE status = "pending" ORDER BY order_date DESC LIMIT 10;
  */
-export function deleteSQL<Tables extends string[]>({
+export function deleteQuery<Tables extends string[]>({
     table,
     where,
     joins,

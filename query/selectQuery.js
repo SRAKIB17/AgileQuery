@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.selectSQL = selectSQL;
+exports.selectQuery = selectQuery;
 const utils_1 = require("./utils");
 let aggregates_alias = {
     'MIN': 'minimum',
@@ -58,7 +58,7 @@ let aggregates_alias = {
  * // ORDER BY order_date DESC
  * // LIMIT 10 OFFSET 0;
  */
-function selectSQL(config) {
+function selectQuery(config) {
     const { distinct, sort, limitSkip, columns, subQueries, groupBy, recursiveCTE, aggregates, table, where, having, joins, } = config;
     let main_table = table;
     let recursiveCTEQuery = '';
@@ -84,9 +84,9 @@ function selectSQL(config) {
     if (subQueries) {
         const subQueryStatement = subQueries
             .map(subQuery => {
-            // Build the subquery string with optional alias
-            return `(${subQuery.query})${subQuery.as ? ` AS ${subQuery.as}` : ""}`;
-        })
+                // Build the subquery string with optional alias
+                return `(${subQuery.query})${subQuery.as ? ` AS ${subQuery.as}` : ""}`;
+            })
             .join(", ");
         select += `${select ? ", " : ""} ${subQueryStatement}`;
     }
@@ -103,8 +103,8 @@ function selectSQL(config) {
             // Handle case where there's no alias
             const functionStr = Object.entries(functions)
                 .map(([func, column]) => {
-                return `${func}(${column}) AS ${aggregates_alias[func] || func}`;
-            }).join(", ");
+                    return `${func}(${column}) AS ${aggregates_alias[func] || func}`;
+                }).join(", ");
             return functionStr;
         });
         select += `${select ? ", " : ""}${aggStrings.join(", ")}`;

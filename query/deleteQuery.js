@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteSQL = deleteSQL;
+exports.deleteQuery = deleteQuery;
 const utils_1 = require("./utils");
 /**
  * Generates a DELETE SQL query with optional WHERE condition, joins, sorting, and limiting the number of deleted rows.
@@ -24,7 +24,7 @@ const utils_1 = require("./utils");
  *
  * @example
  * // Example: Simple DELETE query with WHERE condition and LIMIT
- * const query = deleteSQL({
+ * const query = deleteQuery({
  *   table: 'employees',
  *   where: 'age > 60',
  *   limit: 10
@@ -33,7 +33,7 @@ const utils_1 = require("./utils");
  *
  * @example
  * // Example: DELETE query with JOINs and sorting
- * const query = deleteSQL({
+ * const query = deleteQuery({
  *   table: 'orders',
  *   where: 'status = "pending"',
  *   sort: { order_date: -1 },
@@ -43,7 +43,7 @@ const utils_1 = require("./utils");
  * });
  * // Output: DELETE orders FROM orders INNER JOIN customers ON orders.customer_id = customers.id WHERE status = "pending" ORDER BY order_date DESC;
  */
-function deleteSQL({ table, where, joins, limit, sort, }) {
+function deleteQuery({ table, where, joins, limit, sort, }) {
     // Ensure required parameters are provided
     if (!table) {
         throw new Error("⚠️ The `table` parameter is required.");
