@@ -1,6 +1,6 @@
 {
     "name": "agile-query",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "AgileQuery is a powerful and flexible MySQL query builder and utility library. Designed to simplify query generation, execution, and management, it provides support for complex joins, sorting, grouping, aggregates, subqueries, and more.",
     "keywords": [
         "mysql",
